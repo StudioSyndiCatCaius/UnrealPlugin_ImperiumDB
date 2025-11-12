@@ -1,0 +1,12 @@
+{
+  "external_node_paths": [
+    "{project}/FlowNodes/"
+  ],
+  "name": "UnrealDemo",
+  "tags": [],
+  "tree_expansion": {
+    "/entities/": false,
+    "/flow/": true,
+    "D:/PROJECTS/Work/CircleOfOrion/UE/Plugins/ImperiumDB/Content/ImpProject/flow/test.ImpFlow": false
+  }
+}

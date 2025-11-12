@@ -2,10 +2,11 @@
 
 
 #include "Imperium_Functions.h"
-
+#include "JsonBlueprintFunctionLibrary.h"
 #include "Imperium_Assets.h"
 #include "Imperium_Settings.h"
 #include "JsonObjectConverter.h"
+#include "Interfaces/IPluginManager.h"
 
 UImperium_Project* UImperium_Functions::GetImperiumProjectAsset()
 {
@@ -14,6 +15,25 @@ UImperium_Project* UImperium_Functions::GetImperiumProjectAsset()
 		return Cast<UImperium_Project>(_out);
 	}
 	return nullptr;
+}
+
+FString UImperium_Functions::GetImperiumPluginContentPath()
+{
+	
+	TSharedPtr<IPlugin> Plugin = IPluginManager::Get().FindPlugin("ImperiumDB");
+    
+	if (Plugin.IsValid())
+	{
+		// Get the base directory of the plugin
+		FString PluginBaseDir = Plugin->GetBaseDir();
+        
+		// Append "Content" to get the content folder path
+		FString PluginContentDir = FPaths::Combine(PluginBaseDir, TEXT("Content"));
+        
+		return PluginContentDir;
+	}
+    
+	return FString();
 }
 
 UImperium_NodeSettings* UImperium_Functions::GetImperiumNodeSettings()
@@ -35,6 +55,15 @@ FImperium_AssetData UImperium_Functions::GotNodeData_FromLabel(FImperium_Flow fl
 		}
 	}
 	return FImperium_AssetData();
+}
+
+FImperium_Flow UImperium_Functions::LoadImpFlow(const FString& flowName)
+{
+	FFilePath _path;
+	_path.FilePath=GetPathToFlow(flowName);
+	FJsonObjectWrapper _json;
+	UJsonBlueprintFunctionLibrary::FromFile(_path,_json);
+	return Conv_JsonToFlow(_json,flowName);
 }
 
 FImperium_Flow UImperium_Functions::Conv_JsonToFlow(const FJsonObjectWrapper Json, const FString& Label)

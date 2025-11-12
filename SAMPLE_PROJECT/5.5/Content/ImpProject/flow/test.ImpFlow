@@ -1,0 +1,204 @@
+{
+  "connections": [
+    {
+      "from_node": "100",
+      "from_port": 0,
+      "keep_alive": false,
+      "to_node": "200",
+      "to_port": 0
+    },
+    {
+      "from_node": "200",
+      "from_port": 0,
+      "keep_alive": false,
+      "to_node": "6443981",
+      "to_port": 0
+    },
+    {
+      "from_node": "6443981",
+      "from_port": 0,
+      "keep_alive": false,
+      "to_node": "109602",
+      "to_port": 0
+    },
+    {
+      "from_node": "109602",
+      "from_port": 0,
+      "keep_alive": false,
+      "to_node": "2518979",
+      "to_port": 0
+    },
+    {
+      "from_node": "109602",
+      "from_port": 0,
+      "keep_alive": false,
+      "to_node": "6195947",
+      "to_port": 0
+    },
+    {
+      "from_node": "6195947",
+      "from_port": 0,
+      "keep_alive": false,
+      "to_node": "7527520",
+      "to_port": 0
+    },
+    {
+      "from_node": "2518979",
+      "from_port": 0,
+      "keep_alive": false,
+      "to_node": "5866568",
+      "to_port": 0
+    },
+    {
+      "from_node": "7527520",
+      "from_port": 0,
+      "keep_alive": false,
+      "to_node": "3881921",
+      "to_port": 0
+    },
+    {
+      "from_node": "5866568",
+      "from_port": 0,
+      "keep_alive": false,
+      "to_node": "3881921",
+      "to_port": 0
+    },
+    {
+      "from_node": "3881921",
+      "from_port": 0,
+      "keep_alive": false,
+      "to_node": "300",
+      "to_port": 0
+    }
+  ],
+  "id": 0.0,
+  "label": "untitled*",
+  "linked_script": "",
+  "nodes": [
+    {
+      "_template": "node_Start",
+      "label": "100",
+      "params": {
+
+      },
+      "position": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "_template": "node_DialogueLine",
+      "label": "200",
+      "params": {
+        "line": "Hello there!",
+        "speaker": "Bob"
+      },
+      "position": {
+        "x": 300.0,
+        "y": 0.0
+      }
+    },
+    {
+      "_template": "node_DialogueLine",
+      "label": "6443981",
+      "params": {
+        "line": "How are you today?",
+        "speaker": "Bob"
+      },
+      "position": {
+        "x": 550.0,
+        "y": 0.0
+      }
+    },
+    {
+      "_template": "node_ChoiceHub",
+      "id": 0.0,
+      "label": "109602",
+      "params": {
+        "script": ""
+      },
+      "position": {
+        "x": 860.0,
+        "y": 60.0
+      }
+    },
+    {
+      "_template": "node_Choice",
+      "id": 0.0,
+      "label": "6195947",
+      "params": {
+        "condition": "",
+        "face": "",
+        "script": "",
+        "text": "Good",
+        "type": ""
+      },
+      "position": {
+        "x": 1160.0,
+        "y": -60.0
+      }
+    },
+    {
+      "_template": "node_Choice",
+      "id": 0.0,
+      "label": "2518979",
+      "params": {
+        "condition": "",
+        "face": "",
+        "script": "",
+        "text": "Bad",
+        "type": ""
+      },
+      "position": {
+        "x": 1160.0,
+        "y": 120.0
+      }
+    },
+    {
+      "_template": "node_DialogueLine",
+      "label": "7527520",
+      "params": {
+        "line": "Awesome!",
+        "speaker": "Bob"
+      },
+      "position": {
+        "x": 1420.0,
+        "y": -120.0
+      }
+    },
+    {
+      "_template": "node_DialogueLine",
+      "label": "3881921",
+      "params": {
+        "line": "Well, see ya!"
+      },
+      "position": {
+        "x": 1780.0,
+        "y": 0.0
+      }
+    },
+    {
+      "_template": "node_DialogueLine",
+      "label": "5866568",
+      "params": {
+        "line": "Aww. That's too bad.",
+        "speaker": "Bob"
+      },
+      "position": {
+        "x": 1420.0,
+        "y": 80.0
+      }
+    },
+    {
+      "_template": "node_End",
+      "label": "300",
+      "params": {
+
+      },
+      "position": {
+        "x": 2200.0,
+        "y": 20.0
+      }
+    }
+  ]
+}

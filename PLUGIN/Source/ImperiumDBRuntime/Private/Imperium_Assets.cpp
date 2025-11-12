@@ -3,14 +3,18 @@
 
 #include "Imperium_Assets.h"
 
+#include "Imperium_Functions.h"
 #include "Kismet/KismetStringLibrary.h"
+#include "Kismet/KismetSystemLibrary.h"
 
 FString UImperium_Project::GetDirectory_Root() const
 {
 	FString L;
 	FString R;
-	LinkedProjectFile.Split("/",&L,&R,ESearchCase::IgnoreCase,ESearchDir::FromEnd);
+	FString base_path=UKismetSystemLibrary::NormalizeFilename(LinkedProjectFile);
+	base_path.Split("/",&L,&R,ESearchCase::IgnoreCase,ESearchDir::FromEnd);
 
+	L=UKismetStringLibrary::Replace(L,"{plugin}",UImperium_Functions::GetImperiumPluginContentPath());
 	L=UKismetStringLibrary::Replace(L,"{project}",FPaths::ProjectDir());
 	L=UKismetStringLibrary::Replace(L,"{content}",FPaths::ProjectContentDir());
 	

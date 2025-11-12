@@ -27,6 +27,7 @@ public class ImperiumDBRuntime : ModuleRules
 				"Core",
 				"Json",
 				"DeveloperSettings",
+				"Projects",
 				"JsonUtilities",
 				"JsonBlueprintUtilities",
 				// ... add other public dependencies that you statically link with here ...

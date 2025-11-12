@@ -18,6 +18,9 @@ class IMPERIUMDBRUNTIME_API UImperium_Functions : public UBlueprintFunctionLibra
 public:
 	UFUNCTION(BlueprintPure,Category="ImperiumDB")
 	static UImperium_Project* GetImperiumProjectAsset();
+
+	UFUNCTION(BlueprintPure,Category="ImperiumDB")
+	static FString GetImperiumPluginContentPath();
 	
 	UFUNCTION(BlueprintPure,Category="ImperiumDB")
 	static UImperium_NodeSettings* GetImperiumNodeSettings();
@@ -25,6 +28,9 @@ public:
 	UFUNCTION(BlueprintPure,Category="ImperiumDB")
 	static FImperium_AssetData GotNodeData_FromLabel(FImperium_Flow flowData, const FString& label);
 
+	UFUNCTION(BlueprintCallable,Category="ImperiumDB")
+	static FImperium_Flow LoadImpFlow(const FString& flowName);
+	
 	UFUNCTION(BlueprintCallable,Category="ImperiumDB")
 	static FImperium_Flow Conv_JsonToFlow(const FJsonObjectWrapper Json, const FString& Label);
 	
